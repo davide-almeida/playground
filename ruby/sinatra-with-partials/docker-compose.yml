@@ -1,0 +1,14 @@
+services:
+  sinatra:
+    build: .
+    working_dir: /app
+    container_name: sinatra
+    ports:
+      - 3000:3000
+    command: bash -c "bundle install && rackup -o 0.0.0.0 -p 3000"
+    volumes:
+      - .:/app
+      - rubygems:/usr/local/bundle
+
+volumes:
+  rubygems:
