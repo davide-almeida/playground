@@ -1,0 +1,12 @@
+services:
+  golang-app:
+    build: .
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/go/src/app
+    environment:
+      - GO111MODULE=on
+      - CGO_ENABLED=0
+    command: go run main.go
+    
